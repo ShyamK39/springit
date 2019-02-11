@@ -3,8 +3,8 @@ package com.vega.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
