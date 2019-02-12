@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class HomeController {
 
-    @GetMapping(path = "/")
-    public String home(Model model, HttpServletRequest request) {
-        model.addAttribute("message", "Hello World!!!");
-        return "index";
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Hello, ThymeLeaf");
+        return "home";
     }
 
     //@PostMapping etc...
