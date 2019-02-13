@@ -25,12 +25,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().requestMatchers(EndpointRequest.to("info")).permitAll()
-                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
-                .antMatchers("/actuator/").hasRole("ACTUATOR")
-                .antMatchers("/").permitAll()
-                .antMatchers("/link/submit").hasRole("USER")
+                .authorizeRequests()
+                    .requestMatchers(EndpointRequest.to("info")).permitAll()
+                    .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
+                    .antMatchers("/actuator/").hasRole("ACTUATOR")
+                    .antMatchers("/").permitAll()
+                    .antMatchers("/link/submit").hasRole("USER")
+                    .antMatchers("/h2-console/**").permitAll()
                 .and()
-                .formLogin();
+                .formLogin()
+                .and()
+                    .csrf().disable()
+                    .headers().frameOptions().disable();
     }
 }
