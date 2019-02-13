@@ -28,6 +28,7 @@ public class User implements UserDetails {
     private String email;
 
     @Column(length = 100)
+    @NonNull
     private String password;
 
     @NonNull
@@ -65,5 +66,13 @@ public class User implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
+    }
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+    public void addRoles(Set<Role> roles) {
+        roles.forEach(this::addRole);
     }
 }
