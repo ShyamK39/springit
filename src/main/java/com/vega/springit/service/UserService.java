@@ -5,6 +5,7 @@ import com.vega.springit.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -25,6 +26,14 @@ public class UserService {
     public User save(User user) {
         userRepository.save(user);
         return user;
+    }
+
+    @Transactional
+    public void saveUsers(User... users) {
+        for (User user : users) {
+            logger.info("Saving User: " + user.getEmail());
+            userRepository.save(user);
+        }
     }
 
 }
