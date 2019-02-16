@@ -26,10 +26,12 @@ public class User implements UserDetails {
     @NonNull
     @Size(min =8, max = 20)
     @Column(nullable = false, unique = true)
+    @NotEmpty(message = "Please enter email.")
     private String email;
 
     @Column(length = 100)
     @NonNull
+    @NotEmpty(message = "Please enter password.")
     private String password;
 
     @NonNull
@@ -95,6 +97,7 @@ public class User implements UserDetails {
     public String getFullName(){
         return firstName + " " + lastName;
     }
+
     public void addRole(Role role) {
         roles.add(role);
     }
