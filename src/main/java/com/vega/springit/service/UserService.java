@@ -8,6 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
 public class UserService {
 
@@ -33,6 +35,7 @@ public class UserService {
         user.setPassword(secret);
         user.setConfirmPassword(secret);
         user.addRole(roleService.findByName("ROLE_USER"));
+        user.setActivationCode(UUID.randomUUID().toString());
         save(user);
         sendActivationEmail(user);
         return user;
