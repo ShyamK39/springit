@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final Logger logger = LoggerFactory.getLogger(UserService.class);
-    //private final RoleService roleService;
     private final UserRepository userRepository;
     private final RoleService roleService;
     private final BCryptPasswordEncoder encoder;
@@ -23,19 +22,21 @@ public class UserService {
         this.encoder = new BCryptPasswordEncoder();
     }
 
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
     public User register(User user) {
         String secret = "{bcrypt" + encoder.encode(user.getPassword());
         user.setPassword(secret);
+        user.setConfirmPassword(secret);
         user.addRole(roleService.findByName("ROLE_USER"));
         save(user);
         sendActivationEmail(user);
         return user;
     }
 
-    public User save(User user) {
-        userRepository.save(user);
-        return user;
-    }
+
 
     @Transactional
     public void saveUsers(User... users) {
