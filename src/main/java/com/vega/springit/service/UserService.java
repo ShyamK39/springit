@@ -15,10 +15,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleService roleService;
     private final BCryptPasswordEncoder encoder;
+    private final MailService mailService;
 
-    public UserService(UserRepository userRepository, RoleService roleService) {
+    public UserService(UserRepository userRepository, RoleService roleService, MailService mailService) {
         this.roleService = roleService;
         this.userRepository = userRepository;
+        this.mailService = mailService;
         this.encoder = new BCryptPasswordEncoder();
     }
 
@@ -47,7 +49,10 @@ public class UserService {
     }
 
     private void sendActivationEmail(User user) {
-
+        mailService.sendActivationEmail(user);
     }
 
+    private void sendWelcomeEmail(User user) {
+        mailService.sendWelcomeEmail(user);
+    }
 }
