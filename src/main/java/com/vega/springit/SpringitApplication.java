@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
@@ -31,5 +33,7 @@ public class SpringitApplication {
     public SpringSecurityDialect securityDialect() {
         return new SpringSecurityDialect();
     }
+
+
 }
 

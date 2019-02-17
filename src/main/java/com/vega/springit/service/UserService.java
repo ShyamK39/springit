@@ -32,7 +32,7 @@ public class UserService {
     }
 
     public User register(User user) {
-        String secret = "{bcrypt" + encoder.encode(user.getPassword());
+        String secret = "{bcrypt}" + encoder.encode(user.getPassword());
         user.setPassword(secret);
         user.setConfirmPassword(secret);
         user.addRole(roleService.findByName("ROLE_USER"));
