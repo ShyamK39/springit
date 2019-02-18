@@ -65,6 +65,7 @@ public class LinkController {
             model.addAttribute("link", link);
             return "link/submit";
         } else {
+            linkService.save(link);
             logger.info("New link was saved successfully");
             redirectAttributes
                     .addAttribute("id", link.getId())
