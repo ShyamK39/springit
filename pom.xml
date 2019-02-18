@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.vega</groupId>
     <artifactId>springit</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-FIRSTPASS</version>
     <name>springit</name>
     <description>Reddit Clone</description>
     <packaging>jar</packaging>
