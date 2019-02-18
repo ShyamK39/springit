@@ -18,23 +18,23 @@ project to show off all the cool features of Spring Boot 2.
 
 ## Getting Started
 
-TODO: How to get started?
+Download and unpack.
 
 ### Prerequisites
 
-TODO: What do they need to get started
+You need Java 8, Maven, MailHog or Mailtrap 
 
 ### Installing
 
-TODO: Installing 
+Open the pom.xml file
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+No tests.
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+TODO
 
 ```
 Give an example
@@ -42,7 +42,7 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
+TODO
 
 ```
 Give an example
@@ -50,7 +50,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+TODO
 
 ## Built With
 
@@ -64,6 +64,8 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Authors
 
 * **Dan Vega** - [TheRealDanVega](http://www.therealdanvega.com)
+
+* **Shyam** - Owner of this fork and MOOC fan!
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
